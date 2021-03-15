@@ -1,0 +1,32 @@
+{
+  "name": "@hexlet/code",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/bonusrk/js-algorithms-project-lvl1.git",
+  "author": "bonusrk <word0bearer@gmail.com>",
+  "license": "MIT",
+  "bin": {
+    "hexlet": "bin/package.js"
+  },
+  "scripts": {
+    "test": "npx jest"
+  },
+  "type": "module",
+  "jest": {
+    "testEnvironment": "node",
+    "transform": {}
+  },
+  "dependencies": {
+    "debug": "^4.2.0",
+    "lodash": "^4.17.20"
+  },
+  "devDependencies": {
+    "@jest/globals": "^26.6.2",
+    "eslint": "^7.13.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jest": "^24.1.0",
+    "jest": "^26.6.3",
+    "jest-cli": "^26.6.3"
+  }
+}
