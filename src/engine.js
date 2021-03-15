@@ -1,3 +1,9 @@
+const compare = (a, b, template) => {
+  const aLength = a.text.match(new RegExp(template, 'g')).length;
+  const bLength = b.text.match(new RegExp(template, 'g')).length;
+  return bLength - aLength;
+};
+
 class Engine {
   /**
    *
@@ -8,10 +14,12 @@ class Engine {
   }
 
   search(template) {
+    const t = template.replace(/[^\w\s]/gi, '');
     const results = this.storage.filter(
-      (i) => i.text.includes(template.replace(/[^\w\s]/gi, '')),
+      (i) => i.text.includes(t),
     );
-    return results.map((i) => i.id);
+    const orderedResults = results.sort((a, b) => compare(a, b, t));
+    return orderedResults.map((i) => i.id);
   }
 }
 
