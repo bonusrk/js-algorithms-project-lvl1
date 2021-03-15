@@ -8,7 +8,10 @@ class Engine {
   }
 
   search(template) {
-    return this.storage.filter(i => i.text.includes(template));
+    const results = this.storage.filter(
+      (i) => i.text.includes(template.replace(/[^\w\s]/gi, '')),
+    );
+    return results.map((i) => i.id);
   }
 }
 
@@ -16,6 +19,6 @@ class Engine {
  *
  * @param {Array.<{id:String, text:String}>} arr
  */
-export default function (arr = []) {
+export default function buildEngine(arr = []) {
   return new Engine(arr);
 }
